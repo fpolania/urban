@@ -13,6 +13,9 @@ import Box from '@mui/material/Box';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import HomeIcon from '@mui/icons-material/Home';
+import { getProducts } from './services';
+import { setProducts } from '../redux/actions';
+import { useDispatch } from 'react-redux';
 
 
 const columns = [] = [
@@ -86,6 +89,7 @@ const itemData = [
 const paginationModel = { page: 0, pageSize: 5 };
 const Urban = () => {
     const [providerName, setProviderName] = React.useState('');
+    const dispatch = useDispatch();
     const checkName = (providerName) => {
         if (!providerName) {
             return true;
@@ -94,6 +98,14 @@ const Urban = () => {
         const validName = /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+(?: [a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+)*$/;
         return !validName.test(providerName);
     };
+    React.useEffect(() => {
+        const fetchData = async () => {
+            const response = await getProducts();
+            console.log(response);
+            //dispatch(setProducts(response));
+        };
+        fetchData();
+    }, [])
 
     return (
         <Container component="main" sx={{ mt: 2, p: 2 }}>

@@ -5,10 +5,13 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useState } from 'react';
 import Image from 'react-bootstrap/Image';
-import { House, PersonCircle, Bell } from 'react-bootstrap-icons';
+import { Bell } from 'react-bootstrap-icons';
+import { useSelector } from 'react-redux';
 
 const UrbanBTS = () => {
     const [validated, setValidated] = useState(false);
+    const products = useSelector((state) => state.products);
+    console.log(products);
 
     const users = [
         { id: 1, firstName: 'Mark', lastName: 'Otto', username: '@mdo' },

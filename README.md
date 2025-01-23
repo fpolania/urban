@@ -48,6 +48,12 @@ npm install react-router-dom
 },
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+redux
+npm install redux react-redux @reduxjs/toolkit
+npm install redux-thunk
+
+
+
 npm start
 
 ### `npm run eject`
